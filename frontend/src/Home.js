@@ -63,6 +63,7 @@ const Home = () =>{
                                 </p><br/>
                                 <footer className="blockquote-footer">
                                 <p> Created On -data</p>
+                                <span>Coppyright @ Hiruna</span>
                                 </footer>
                               </blockquote>
                         </Card.Body>
