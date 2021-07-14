@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import {NavDropdown,Nav,Navbar,Form,Button,FormControl,Card, Container,Badge, Accordion } from 'react-bootstrap'
 import MainScreen from './MainScreen';
 import { Link } from 'react-router-dom';
-import notes from './data/notes';
-import { right } from '@popperjs/core';
+import axios from 'axios';
 
 
 
 
 const Home = () =>{
 
+   const [notes, setNotes] = useState([]);
+
    const deleteHandler = (id) => {
      if(Window.confirm("Are you Sure ?")){
          
      }
-   }
+   };
+
+  const fetchNotes=async() => {
+    const { data }=await axios.get("/api/notes");
+    console.log(data);
+    setNotes(data);
+  }
+
+   useEffect(() => {
+      
+     fetchNotes();
+     
+   },[]);
 
     return(
       <Container>
@@ -28,7 +41,7 @@ const Home = () =>{
                     <br/><br/>
                     {
                       notes.map((note)=>(
-                           <Accordion>
+                           <Accordion key={note._id}>
                                <Card style={{margin: 10}}>
                         <Card.Header style={{display:'flex'}}>
                           <h5>
