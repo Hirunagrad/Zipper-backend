@@ -62,7 +62,7 @@ const Home = () =>{
                                  {note.content}
                                 </p><br/>
                                 <footer className="blockquote-footer">
-                                 Created On -data
+                                <p> Created On -data</p>
                                 </footer>
                               </blockquote>
                         </Card.Body>
