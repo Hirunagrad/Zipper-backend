@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavDropdown,Nav,Navbar,Form,Button,FormControl} from 'react-bootstrap'
+import {NavDropdown,Nav,Navbar,Form,Button,FormControl, Container} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 //<Link to="/">Form</Link>
@@ -7,8 +7,9 @@ import {Link} from 'react-router-dom'
 
 const Header = () =>{
     return(
-<Navbar bg="light" expand="lg">
-  <Navbar.Brand href="#">Auth</Navbar.Brand>
+      <div className="" >
+        <Navbar bg="light" expand="lg">
+ 
   <Navbar.Toggle aria-controls="navbarScroll" />
   <Navbar.Collapse id="navbarScroll">
     <Nav
@@ -16,6 +17,7 @@ const Header = () =>{
       style={{ maxHeight: '100px' }}
       navbarScroll
     >
+    
       <Nav.Link href="/">Form</Nav.Link>
       <Nav.Link href="/home">Home</Nav.Link>
       <NavDropdown title="Link" id="navbarScrollingDropdown">
@@ -31,6 +33,8 @@ const Header = () =>{
   
   </Navbar.Collapse>
 </Navbar>
+      </div>
+
     );
 }
 
