@@ -36,6 +36,7 @@ app.get("/api/notes", (req,res)=>{
 app.use('/api/users',userRoutes)
 //hiruna
 //gayashan
+//server
 
 app.use(notFound);
 app.use(errorHandler);
