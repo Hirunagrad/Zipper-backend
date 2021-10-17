@@ -5,6 +5,7 @@ const app = express();
 const cors = require("cors");
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
+const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 app.use(express.json());
 dotenv.config();
@@ -37,3 +38,6 @@ app.listen(PORT, () => {
 });
 
 app.use("/api/userms/", userRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
