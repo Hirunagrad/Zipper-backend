@@ -1,10 +1,12 @@
 const express = require("express");
-const notes = require("./data/notes");
+//const notes = require("./data/notes");
 const dotenv = require("dotenv");
 const app = express();
 const cors = require("cors");
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
+const noteRoutes = require("./routes/noteRoutes");
+
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 app.use(express.json());
@@ -24,20 +26,25 @@ app.get("/", (req, res) => {
   res.send("Hello api!!");
 });
 
-app.get("/api/notes/", (req, res) => {
-  res.json(notes);
-});
+// app.get("/api/notes", (req, res) => {
+//   res.send("Hello...!!");
+// });
 
-app.get("/api/notes/:id", (req, res) => {
-  const note = notes.find((n) => n._id === req.params.id);
-  res.send(note);
-});
+// app.get("/api/notes/", (req, res) => {
+//   res.json(notes);
+// });
+
+// app.get("/api/notes/:id", (req, res) => {
+//   const note = notes.find((n) => n._id === req.params.id);
+//   res.send(note);
+// });
 
 app.listen(PORT, () => {
   console.log(`app is running port ${PORT}`);
 });
 
 app.use("/api/userms/", userRoutes);
+app.use("/api/notes", noteRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
